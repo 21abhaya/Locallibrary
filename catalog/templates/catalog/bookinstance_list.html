@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %} 
+
+{% block content %}
+  <h1>Book Instances</h1>
+  {% if bookinstance_list %}
+    <ul>
+      {% for inst in bookinstance_list %}
+      <li>
+        <a href="{{inst.get_absolute_url}}">{{ inst.id }}</a> ({{inst.book.title}})
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}
+{% endblock %} 

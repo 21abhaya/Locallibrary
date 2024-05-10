@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Genre: {{ genre }}</h1>
+
+ <div style="margin-left:20px;margin-top:20px">
+    <h4>Books available for this genre:</h4>
+
+  {% for copy in genre.book_set.all %}
+
+        <ul>
+            <li><a href="{{ copy.get_absolute_url }}">{{ copy.title }}</a></li>
+        </ul>
+        {%empty%}
+
+        <p>This genre has no books.</p>
+    {% endfor %}
+ 
+    </div>
+ {% endblock %}
